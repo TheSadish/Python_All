@@ -1,7 +1,7 @@
 name = "Sadish"
 age = 25
 
-print ("My name is", name, "any my age is", age)                # The old way 
+print ("My name is", name, "and my age is", age)                # The old way 
 
 print ("My name is {} and my age is {}".format(name,age))       #  {} is replaced by format.(variable)
 
