@@ -50,6 +50,8 @@ first_dict = {
 
 print (first_dict)
 
+print (first_dict.keys()) # If you want to print Keys
+print (first_dict.values()) # If you want to print values
 # Boolean
 
 x = True
