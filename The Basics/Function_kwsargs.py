@@ -4,7 +4,9 @@ Write a function to take some minutes and some key values like hobby, work then 
 """
 import random
 
-def activity(*args,**kwargs):
+def activity(*args,**kwargs): # *args -> Tuple as input, **kwargs -> Dictionary as input
+    print(args) #Prints Tuple
+    print(kwargs) # Prints Dictionary
     min = sum(args) + random.randint(0,60)
     choice =  random.choice(list(kwargs.keys()))
     print(f"You can spend {min} min in {kwargs[choice]}")    
