@@ -32,11 +32,13 @@ names.extend(names1)   # Add two list together
 
 
 names.insert(2, "Sumit") # Insert a specific place
+print(names) 
 
 names.pop() # Remove the last element
 
-names.pop(5) # Remove the 5th element
+names.pop(1) # Remove the 2nd element
 
+names.sort() # Sorts both integer and string
 print(names) 
 
 # Functions in a dictionary
@@ -50,5 +52,6 @@ first_dict = {
 print(first_dict.pop("Age"))  # Remove the key you want to remove
 
 print(first_dict.items())
+
 
 

@@ -4,11 +4,11 @@ Fetch data from STRING
                1  2  3  4  5
               -5 -4 -3 -2 -1  
 '''
-planet = "Earth Mars Jupiter"
+planet = "EarthMarsJupiter"
 print(planet) 
-print(planet[4], planet[6], planet[-18])
+#print(planet[4], planet[6], planet[-18])
 
-print(planet[0:5])   # Slicing [first range: Last +1]
+print(planet[0:5])   # Slicing from index 0 to 4 (inclusive of 0, exclusive of 5 that is till 4)
 print(planet[:])     # By default range is 0:-1  (Start to End)
 
 
@@ -17,7 +17,7 @@ print(planet[:])     # By default range is 0:-1  (Start to End)
 
 myself = ("Sadish", 25, "Accenture")
 print(myself[1:3])   # Same way like string
-print(myself[-1])
+print(myself[-1]) # Fetching last element
 
 print(myself[1:3][1]) # Slicing a sliced tuple
 
@@ -35,3 +35,18 @@ myself = {
 
 print (myself["name"][0:4])
 print (myself["Certs"][-2][:2])
+
+
+a = "Sadish"
+b = "Kumar"
+c = "Dash"
+
+print(a+ " " +b+ " " +str(6+6) + " " +c)  #Contatenation of strings
+
+# Spliting a string
+
+a = "Sadish Kumar Dash"
+
+print(a.split(" ")) # Prints a list of words in the string
+
+print(a.split(" ")[0]) # Prints the first word in the string

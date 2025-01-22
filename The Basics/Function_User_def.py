@@ -1,5 +1,5 @@
-# Basic Calculator with + - * /
-
+# Basic Calculator with + - * / 
+# Functions in python generally use snake_case
 def add(a,b):
     return a+b
 
@@ -47,3 +47,19 @@ while (n):
     n-=1
 
 print (f"The digits provided by you are {tobeadded} and the sum is {addition(tobeadded)}")
+
+
+#Default Arguments
+
+def print_name(age, name = "Sadish"):
+    print(f"Hey {name} you are {age} years old")
+
+print_name(25)
+print_name(25,"Richa")
+
+def print_name1(age =25, name = "Sadish"):
+    print(f"Hey {name} you are {age} years old")
+
+print_name1(name = "Richa")
+
+
