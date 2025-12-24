@@ -53,7 +53,7 @@ def kaam(env): # Function Definition
 env = input("Enter your env :")
 kaam(env) # Function calling
 
-"""
+
 
 # Check Cif CPU Usage > Threshold
 import psutil # type: ignore
@@ -71,3 +71,46 @@ def check_cpu(thres):
         print("CPU is in safe state.")
 
 get_cpu_threshold()
+
+
+# Data Structure - List, Dicitionary, Set, Tuple
+
+# List
+
+clouds = ["Azure","AWS","GCP","Alibaba"]
+
+clouds.append("Oracle")
+
+print(clouds)
+print(len(clouds))
+print(clouds[0])
+print(clouds[-1])
+
+# print(dir(clouds))
+print(clouds.extend.__doc__)
+
+for cloud in clouds:
+    print(cloud)
+
+"""
+
+# Dictionary
+
+my_dict = {
+    "name":"Sadish",
+    "age":26
+    }
+
+print(f"My name is {my_dict['name']}")
+print(f"My name is {my_dict.get("aghe")}") # .get() wont throw an error if the argument isnt found
+
+my_dict.update({"LastName":"Dash"})
+print(my_dict)
+
+print(my_dict.items()) # This returns a list of tuples which contains key value pairs
+
+for i in my_dict:
+    print(i) # This will print only keys as default behavior of dictionary is to iterate over keys
+    
+for key,value in my_dict.items():
+    print(f"{key} = {value}") 
