@@ -56,7 +56,7 @@ kaam(env) # Function calling
 """
 
 # Check Cif CPU Usage > Threshold
-import psutil
+import psutil # type: ignore
 
 def get_cpu_threshold():
     threshold = int(input("Enter CPU threshold in % "))
