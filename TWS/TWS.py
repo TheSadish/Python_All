@@ -188,6 +188,7 @@ url = "https://official-joke-api.appspot.com/random_joke"
 
 def get_joke():
     response = requests.get(url)
-    return (response.json()['setup']+ "\n" + response.json()['punchline'])
+    # return (response.json()['setup']+ "\n" + response.json()['punchline'])
+    return response.json()["type"]
 
 print(get_joke())
