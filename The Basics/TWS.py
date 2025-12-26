@@ -92,7 +92,6 @@ print(clouds.extend.__doc__)
 for cloud in clouds:
     print(cloud)
 
-"""
 
 # Dictionary
 
@@ -111,6 +110,84 @@ print(my_dict.items()) # This returns a list of tuples which contains key value 
 
 for i in my_dict:
     print(i) # This will print only keys as default behavior of dictionary is to iterate over keys
-    
+
 for key,value in my_dict.items():
     print(f"{key} = {value}") 
+
+# Set - Unordered collection of unique items
+
+info = {} # Empty Dictionary
+days = set() # Empty Set
+dic = dict() # Another way to declare empty dictionary
+
+days = {2,3,4,3,2,2,2,3,4,5,3,2,1,2,3,4,5}
+print(days) # Set will remove duplicates
+
+# Does set sorts itself? No, sets are unordered collections. 
+# It can change order every python version.
+# To make it sorted use sorted() function
+
+num = [0,9,8,9,0,1,2,-1,2,3,4,5,3,2,1,0,-1]
+
+num = list(set(num))
+print(num)
+
+
+
+# Tuple - Immutable (Cannot be changed)
+
+tuple1 = (1,2,3,4,5)
+print(tuple1)
+
+print(tuple1.count(2)) # Counts how many times 2 is present in the tuple
+print(tuple1.index(4)) # Returns the index of the value 4
+for i in tuple1:
+    print(i)
+
+# You cannot add, remove or update values in a tuple
+
+
+#apparent_encoding', 'close', 'connection', 'content', 'cookies', 'elapsed', 'encoding', 
+# 'headers', 'history', 'is_permanent_redirect', 'is_redirect', 'iter_content', 'iter_lines', 'json', 
+# 'links', 'next', 'ok', 'raise_for_status', 'raw', 'reason', 'request', 'status_code', 'text', 'url
+
+
+# Simple API call using requests module
+
+import requests # type: ignore
+
+url = "https://jsonplaceholder.typicode.com/todos/1"
+response = requests.get(url)
+
+for key,value in response.json().items():
+    print(f"{key} = {value}")
+
+
+
+import requests # type: ignore
+
+
+PAT_KEY = "demo"
+
+url = 'https://www.alphavantage.co/'
+
+interval = "5min"
+symbol = input("Enter the stock symbol (Type IBM): ")
+query = f"query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval={interval}&apikey={PAT_KEY}"
+
+def get_market_date(url, query):
+    response = requests.get(url+query)
+    print(response.json()['Meta Data']['3. Last Refreshed'])
+
+get_market_date(url, query)
+
+"""
+import requests # type: ignore
+
+url = "https://official-joke-api.appspot.com/random_joke"
+
+def get_joke():
+    response = requests.get(url)
+    return (response.json()['setup']+ "\n" + response.json()['punchline'])
+
+print(get_joke())
