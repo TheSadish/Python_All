@@ -1,16 +1,10 @@
-def read_logs():
-    file = open("app.logs","r")
-    print(file.readlines())
-    file.close()
-
-# Using with statement you can avoid closing the file manually
-# Rest will be same as read_logs function
-
+import pdb
 def read_logs_with():
     with open("app.logs","r") as file:
         return file.readlines()
 
 def analyse(lines):
+    # pdb.set_trace() - Used to set a breakpoint for debugging where we can inspect variables and step through the code.(n for next, c for continue, q for quit)
     log_count = {
         "INFO": 0,
         "WARNING": 0,
@@ -18,7 +12,7 @@ def analyse(lines):
     }
     for line in lines:
         if "INFO" in line:
-            log_count.update({"INFO":log_count["INFO"]+1})
+            log_count.update({"INFO":log_count["INFO"]+1})  # .update() expects a dictionary
         elif "WARNING" in line:
             log_count.update({"WARNING":log_count["WARNING"]+1})
         elif "ERROR" in line:

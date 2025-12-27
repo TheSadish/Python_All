@@ -12,3 +12,14 @@ file.close()
 # a - append
 # a+ - append and read
 
+def read_logs():
+    file = open("app.logs","r")
+    print(file.readlines())
+    file.close()
+
+# Using with statement you can avoid closing the file manually
+# Rest will be same as read_logs function
+
+def read_logs_with():
+    with open("app.logs","r") as file:
+        return file.readlines()
