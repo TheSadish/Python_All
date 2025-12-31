@@ -45,32 +45,34 @@ class AWS:
 
 s3 = AWS('s3')
 
-task = input("What do you want to do with bucket? Create, Delete or List \n").lower() 
+if __name__ == "__main__":  # Run the code below only if this file is executed directly, not when imported
 
-if task == "create":
-    bucket_name = input("Enter name of your bucket: ")
-    s3.create_bucket(bucket_name)
+    task = input("What do you want to do with bucket? Create, Delete or List \n").lower() 
 
-elif task == "list":
-    buckets = s3.list_buckets()
-    if len(buckets) == 0: 
-        print("No buckets founds!")
-    else:
-        print(f"These are your current buckets ")
-        for buck in buckets:
+    if task == "create":
+        bucket_name = input("Enter name of your bucket: ")
+        s3.create_bucket(bucket_name)
+
+    elif task == "list":
+        buckets = s3.list_buckets()
+        if len(buckets) == 0: 
+            print("No buckets founds!")
+        else:
+            print(f"These are your current buckets ")
+            for buck in buckets:
+                print(f"- {buck}")
+
+    elif task == "delete":
+        for buck in s3.list_buckets():
             print(f"- {buck}")
+        bucket_name = input("Enter the bucket you want to delete among these ")
+        s3.delete_buckets(bucket_name)   
+        print(f"The bucket '{bucket_name}' has been deleted")
+        
+    else:
+        pass
 
-elif task == "delete":
-    for buck in s3.list_buckets():
-        print(f"- {buck}")
-    bucket_name = input("Enter the bucket you want to delete among these ")
-    s3.delete_buckets(bucket_name)   
-    print(f"The bucket '{bucket_name}' has been deleted")
-    
-else:
-    pass
-
-while (int(input("Do you want to push json to s3 ? 0 or 1\n"))):
-    s3.upload_file('check-test-python', 'output.json', 'json_logs') # Uploading a josn file to s3 bucket
-    print("Uploaded")
-    break
+    while (int(input("Do you want to push json to s3 ? 0 or 1\n"))):
+        s3.upload_file('check-test-python', 'output.json', 'json_logs') # Uploading a josn file to s3 bucket
+        print("Uploaded")
+        break
