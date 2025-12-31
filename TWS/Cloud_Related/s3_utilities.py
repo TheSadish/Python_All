@@ -4,6 +4,9 @@ s3 = boto3.resource("s3")
 for bucket in s3.buckets.all():
     print(bucket.name)
 '''
+# AWS credentials must be configured using `aws configure`
+# This creates ~/.aws/credentials and ~/.aws/config files that boto3 uses automatically
+
 
 def get_connection(service):
     return boto3.client(service)
@@ -15,9 +18,11 @@ def list_buckets(s3_client):
     return my_all_buck
 
 def create_bucket(s3_client,name):
-    s3_client.create_bucket(
+    response = s3_client.create_bucket(
     Bucket = name
     )
+    if response["ResponseMetadata"]["HTTPStatusCode"] == 200:
+        print(f"Bucket '{name}' created successfully")
     
 def delete_buckets(s3_client, bucket):
     s3_client.delete_bucket(
@@ -30,7 +35,6 @@ task = input("What do you want to do with bucket? Create, Delete or List \n").lo
 if task == "create":
     bucket_name = input("Enter name of your bucket: ")
     create_bucket(s3,bucket_name)
-    print("Bucket created successfully") 
 elif task == "list":
     buckets = list_buckets(s3)
     if len(buckets) == 0: 
