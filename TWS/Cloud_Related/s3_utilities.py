@@ -29,12 +29,21 @@ def delete_buckets(s3_client, bucket):
     Bucket = bucket
     )
 
+def upload_file(s3_client, bucket, file_path,key):
+    s3_client.upload_file(
+    file_path,
+    bucket,
+    key
+    )
+
 s3 = get_connection("s3")
 
 task = input("What do you want to do with bucket? Create, Delete or List \n").lower() 
+
 if task == "create":
     bucket_name = input("Enter name of your bucket: ")
     create_bucket(s3,bucket_name)
+
 elif task == "list":
     buckets = list_buckets(s3)
     if len(buckets) == 0: 
@@ -43,15 +52,17 @@ elif task == "list":
         print(f"These are your current buckets ")
         for buck in buckets:
             print(f"- {buck}")
+
 elif task == "delete":
     for buck in list_buckets(s3):
         print(f"- {buck}")
     bucket_name = input("Enter the bucket you want to delete among these ")
-    delete_buckets(s3, bucket_name)  
+    delete_buckets(s3, bucket_name)   
     print(f"The bucket '{bucket_name}' has been deleted")
+    
 else:
     pass
 
-# buckets = list_buckets(s3)
-
-# delete_buckets(s3,buckets) - Deleting all buckets for now
+if (input("Do you want to push to s3 ? 0 or 1\n")):
+    upload_file(s3, 'check-test-python', 'output.json', 'json_logs') # Uploading a josn file to s3 bucket
+    print("Uploaded")

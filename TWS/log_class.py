@@ -32,5 +32,5 @@ class LogAnalyzer:
 
         self.add_to_json(log_count)
     
-logs = LogAnalyzer("app.logs", "output.json")
+logs = LogAnalyzer("TWS/app.logs", "output.json")
 logs.analyse()
