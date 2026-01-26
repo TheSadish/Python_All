@@ -36,7 +36,7 @@ headers = {
 
 print(f"\nThese are the abilities of {pokemon}")
 
-data = fetch_pokemon_abilities(base_url, pokemon, headers)
+data = fetch_pokemon_abilities(base_url, pokemon, headers) # Headers defined above
 
 if data:
     for ability in data["abilities"]:
