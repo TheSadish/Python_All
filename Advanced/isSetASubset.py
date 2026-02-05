@@ -16,3 +16,12 @@ for i in range(0, test_cases):
     else:
         print(False)
     
+
+
+# Simple Logic
+
+# if set1.issubset(set2):
+#     print("True")
+
+# or if ( set1 <= set2 ):
+#     print("True")
