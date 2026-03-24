@@ -20,3 +20,6 @@ user.update({"age":27})
 
 for key,value in user.items():
     print(f"{key}:{value}")
+
+
+# FYI - Dictionary can't have duplicate keys

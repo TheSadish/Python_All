@@ -10,6 +10,8 @@ num_reverse = [nums[i] for i in range(len(nums)-1,-1,-1)]
 
 print(num_reverse)
 
+# nums[::-1] -> Slicing
+
 # ---------------------------------------------------------------------
 
 sorted_nums = nums[:]
@@ -22,4 +24,4 @@ print(sorted_nums[len(nums)-2])
 nums1 = [3,4,4,4,5,6,7]
 
 no_dup_num1 = dict.fromkeys(nums1)
-print(list(no_dup_num1))
+print((no_dup_num1))

@@ -29,4 +29,14 @@ data[ch] = data.get(ch, 0) + 1
 Here .get will fetch the ch from dictionary and 0 is the default in case there is no value
 '''
 
-# A standard Python dictionary retains the insertion order of its items. This behavior was introduced as an implementation detail in Python 3.6 and became an official, guaranteed part of the language specification in Python 3.7 and later.
+# A standard Python dictionary retains the insertion order of its items. This behavior was 
+# introduced  as an implementation detail in Python 3.6 and became an official, 
+# guaranteed part of the language specification in Python 3.7 and later.
+
+nums1 = [3,4,4,4,5,6,7]
+
+no_dup_num1 = dict.fromkeys(nums1)
+
+# FYI - Dictionary can't have duplicate keys
+# in dict.fromkeys(nums1) it will take key from the list and set the value as none.
+# Since dictionary cant have duplicates it will store like this {3: None, 4: None, 5: None, 6: None, 7: None}
